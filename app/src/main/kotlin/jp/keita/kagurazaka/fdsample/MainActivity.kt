@@ -8,10 +8,13 @@ import android.os.Environment
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.Toolbar
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.jakewharton.rxbinding.widget.RxTextView
 import com.nononsenseapps.filepicker.FilePickerActivity
+import rx.Observable
 import java.io.File
 
 class MainActivity : BaseActivity() {
@@ -80,10 +83,21 @@ class MainActivity : BaseActivity() {
             startActivityForResult(intent, RequestCode.SELECT_OUTPUT_DIR.code)
         }
 
+        // FloatingActionButton settings
         fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show() }
 
         onRxErrorListener = { Toast.makeText(applicationContext, it, Toast.LENGTH_LONG).show() }
+
+        // Observe Rx streams.
+        val isDirSpecified = Observable.combineLatest(
+                RxTextView.textChanges(inputDirText),
+                RxTextView.textChanges(outputDirText)) { input, output ->
+            input.isNotBlank() && output.isNotBlank()
+        }
+        subscribeOnMainThread(isDirSpecified) {
+            fab.visibility = if (it) View.VISIBLE else View.GONE
+        }
     }
 
     private fun finalizeUI() {
