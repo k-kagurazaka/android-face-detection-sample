@@ -58,6 +58,7 @@ dependencies {
 
     // Others
     compile 'com.nononsenseapps:filepicker:2.5.0'
+    compile 'com.google.code.gson:gson:2.6.1'
 
     // Testing
     testCompile 'junit:junit:4.12'
