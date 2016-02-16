@@ -52,7 +52,7 @@ dependencies {
     compile 'com.jakewharton.rxbinding:rxbinding-kotlin:0.3.0'
 
     // Google Play services
-    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.google.android.gms:play-services-vision:8.4.0'
 
     // Others
     compile 'com.nononsenseapps:filepicker:2.5.0'
