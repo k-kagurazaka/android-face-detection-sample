@@ -35,6 +35,7 @@ class FaceDetectorWrapper(private val context: Context) {
                 .setMode(FaceDetector.ACCURATE_MODE)
                 .setTrackingEnabled(false)
                 .setProminentFaceOnly(false)
+                .setMinFaceSize(0.11f)
                 .build()
 
         isReady = Observable.timer(500, TimeUnit.MILLISECONDS, Schedulers.newThread())
@@ -47,6 +48,7 @@ class FaceDetectorWrapper(private val context: Context) {
 
         // Construct frame from the specified image file.
         var bitmap: Bitmap? = BitmapFactory.decodeFile(image.absolutePath)
+        // var bitmap: Bitmap? = Utils.decodeWithResize(image, 640, 480)
         val frame = Frame.Builder().setBitmap(bitmap).build()
 
         // Detect faces.
