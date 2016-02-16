@@ -7,14 +7,14 @@ import android.os.Bundle
 import android.os.Environment
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.nononsenseapps.filepicker.FilePickerActivity
 import java.io.File
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     enum class RequestCode(val code: Int) {
         SELECT_INPUT_DIR(1001),
@@ -82,6 +82,8 @@ class MainActivity : AppCompatActivity() {
 
         fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show() }
+
+        onRxErrorListener = { Toast.makeText(applicationContext, it, Toast.LENGTH_LONG).show() }
     }
 
     private fun finalizeUI() {
@@ -89,6 +91,7 @@ class MainActivity : AppCompatActivity() {
         selectInputDirButton.setOnClickListener(null)
         selectOutputDirButton.setOnClickListener(null)
         fab.setOnClickListener(null)
+        onRxErrorListener = null
     }
 
     private fun createDirectoryChooser(initialDir: String): Intent =
