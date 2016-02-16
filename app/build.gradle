@@ -39,8 +39,24 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Android support libraries
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // ReactiveX
+    compile 'io.reactivex:rxjava:1.1.1'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.3.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-kotlin:0.3.0'
+
+    // Google Play services
+    compile 'com.google.android.gms:play-services:8.4.0'
+
+    // Others
+    compile 'com.nononsenseapps:filepicker:2.5.0'
+
+    // Testing
+    testCompile 'junit:junit:4.12'
 }
