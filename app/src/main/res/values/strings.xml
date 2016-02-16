@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Face Detector</string>
+
+    <string name="input_dir">Input directory</string>
+    <string name="output_dir">Output directory</string>
+    <string name="open">Open</string>
 </resources>

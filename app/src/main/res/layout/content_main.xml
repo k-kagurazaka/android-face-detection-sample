@@ -13,7 +13,59 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
+        android:id="@+id/input_dir_caption"
+        style="@style/TextAppearance.AppCompat.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="@string/input_dir" />
+
+    <Button
+        android:id="@+id/select_input_dir_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/input_dir_caption"
+        android:text="@string/open" />
+
+    <EditText
+        android:id="@+id/input_dir_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/select_input_dir_button"
+        android:layout_toLeftOf="@id/select_input_dir_button"
+        android:layout_toStartOf="@id/select_input_dir_button"
+        android:inputType="text" />
+
+    <Space
+        android:id="@+id/space1"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@id/select_input_dir_button" />
+
+    <TextView
+        android:id="@+id/output_dir_caption"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space1"
+        android:text="@string/output_dir" />
+
+    <Button
+        android:id="@+id/select_output_dir_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/output_dir_caption"
+        android:text="@string/open" />
+
+    <EditText
+        android:id="@+id/output_dir_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/select_output_dir_button"
+        android:layout_toLeftOf="@id/select_output_dir_button"
+        android:layout_toStartOf="@id/select_output_dir_button"
+        android:inputType="text" />
 </RelativeLayout>
